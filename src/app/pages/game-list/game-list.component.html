@@ -1,0 +1,5 @@
+
+<div class="gameList" *ngFor="let game of gameList">
+    <app-game [game]="game" (addedToFavorites)="addToFavorites($event)"></app-game>
+</div>
+

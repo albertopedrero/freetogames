@@ -1,5 +1,8 @@
 <div class="game">
     {{game.title}}
     <img [src]="game.thumbnail" alt="">
-    <button (click)="addToFavorites(game)">Add to Favorites</button>
+
+    <button *ngIf="!isFavorite(game.id)" (click)="addToFavorites(game)">Add to Favorites</button>
+    <button *ngIf="isFavorite(game.id)" (click)="removeFromFavorites(game)">Remove from Favorites</button>
+
 </div>

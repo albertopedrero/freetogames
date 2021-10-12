@@ -1,1 +1,7 @@
-<p>favorites works!</p>
+
+<div *ngIf="favoritesList.length === 0">
+    <p>No hay favoritos</p>
+</div>
+<div class="gameList" *ngFor="let game of favoritesList">
+    <app-game [game]="game"></app-game>
+</div>

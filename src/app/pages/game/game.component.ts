@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { FavoritesService } from 'src/app/services/favorites.service';
 
 @Component({
   selector: 'app-game',
@@ -9,14 +10,20 @@ import { EventEmitter } from '@angular/core';
 export class GameComponent implements OnInit {
 
   @Input() game:any;
-  @Output() addedToFavorites = new EventEmitter();
-  constructor() { }
+  constructor(private _favoritesService: FavoritesService) { }
 
   ngOnInit(): void {
   }
 
   addToFavorites(game:any){
-    console.log(game.title)
-    this.addedToFavorites.emit(game);
+    this._favoritesService.addFavorite(game);
+  }
+  removeFromFavorites(game:any){
+    this._favoritesService.removeFavorite(game);
+  }
+
+  isFavorite(gameId:number){
+    return this._favoritesService.isFavorite(gameId);
+
   }
 }

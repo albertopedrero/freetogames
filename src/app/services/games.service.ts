@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GamesService {
 
+  url  = "https://www.freetogame.com/api/games";
   gameList = [
     {
       "id": 1,
@@ -137,9 +139,9 @@ export class GamesService {
       "freetogame_profile_url": "https://www.freetogame.com/archeage"
     }]
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getGames(){
-    return this.gameList;
+    return this.http.get(this.url);
   }
 }

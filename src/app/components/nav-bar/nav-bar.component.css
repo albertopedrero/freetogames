@@ -1,13 +1,4 @@
-nav {
-    border-bottom: 2px solid #CCCCCC;
-    margin-bottom: 20px;
-}
-
-ul {
-    list-style-type: none;
-}
-
-li {
-    display: inline-block;
-    padding: 10px;
+.logo {
+    font-size: 2em;
+    color: orange;
 }
